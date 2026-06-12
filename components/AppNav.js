@@ -5,20 +5,29 @@ import { usePathname } from 'next/navigation';
 
 const links = [
   { href: '/discover', label: 'Discover' },
-  { href: '/matches', label: 'Matches' },
+  { href: '/matches', label: 'Crushes' },
   { href: '/chats', label: 'Chats' },
   { href: '/settings', label: 'Settings' },
 ];
 
 export default function AppNav() {
   const pathname = usePathname();
+
+  function isActive(href) {
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
+
   return (
-    <div className="dc-bottom-nav">
+    <nav className="dc-bottom-nav" aria-label="App navigation">
       {links.map((link) => (
-        <Link key={link.href} href={link.href} className={`dc-nav-pill ${pathname === link.href ? 'active' : ''}`}>
+        <Link
+          key={link.href}
+          href={link.href}
+          className={`dc-nav-pill ${isActive(link.href) ? 'active' : ''}`}
+        >
           {link.label}
         </Link>
       ))}
-    </div>
+    </nav>
   );
 }
