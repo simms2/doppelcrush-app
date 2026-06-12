@@ -1,272 +1,290 @@
 import Link from 'next/link';
-import SiteHeader from '@/components/SiteHeader';
 
-const proofAvatars = [
-  '/assets/home-proof-1.webp',
-  '/assets/home-proof-2.webp',
-  '/assets/home-proof-3.webp',
-  '/assets/home-proof-4.webp',
+const previewMatches = [
+  {
+    name: 'Lola',
+    age: 19,
+    image: '/assets/home-lola.jpg',
+    badge: 'Twin Energy 92%',
+    badgeClass: 'twin',
+    textTop: 'Cute. Familiar.',
+    textBottom: 'Elite taste.',
+  },
+  {
+    name: 'Kai',
+    age: 20,
+    image: '/assets/home-kai.jpg',
+    badge: 'Chaos Mode',
+    badgeClass: 'chaos',
+    textTop: 'A total switch-up.',
+    textBottom: 'Still a yes.',
+  },
+  {
+    name: 'Ivy',
+    age: 18,
+    image: '/assets/home-ivy.jpg',
+    badge: 'Twin Energy 87%',
+    badgeClass: 'twin',
+    textTop: 'Same vibe.',
+    textBottom: 'Same face card energy.',
+  },
+];
+
+const miniCards = [
+  {
+    icon: '📷',
+    title: 'Upload selfie',
+    text: 'Face card only',
+  },
+  {
+    icon: '💗',
+    title: 'Get matches',
+    text: 'Cute people, similar vibe',
+  },
+  {
+    icon: '💬',
+    title: 'Start chatting',
+    text: 'If it’s a match',
+  },
 ];
 
 export default function HomePage() {
   return (
-    <main className="dc-page-shell">
-      <SiteHeader />
+    <main className="dc-page-shell dc-home-shell-v5">
+      <header className="dc-home-browser-shell-v5">
+        <div className="dc-home-toolbar-v5">
+          <div className="dc-home-toolbar-left-v5">
+            <span className="dot red" />
+            <span className="dot yellow" />
+            <span className="dot green" />
+          </div>
 
-      <section className="dc-home-hero dc-card">
-        <div className="dc-home-copy">
-          <div className="dc-home-sticker">📸 Selfie first. Crush later.</div>
+          <div className="dc-home-toolbar-center-v5">
+            <span className="dc-home-toolbar-lock-v5">🔒</span>
+            <span>doppelcrush.com</span>
+          </div>
 
-          <h1 className="dc-home-title">
-            Find your <span>Doppel.</span>
-            <br />
-            Or flirt with <em>chaos.</em>
-          </h1>
+          <div className="dc-home-toolbar-right-v5">
+            <span>⤴</span>
+            <span>＋</span>
+            <span>▢</span>
+          </div>
+        </div>
 
-          <p className="dc-home-subcopy">
-            Upload your selfie, pick your vibe, and discover people who match your
-            look — or completely change your type.
+        <div className="dc-home-header-v5">
+          <div className="dc-home-brand-v5">
+            <img src="/assets/logo-badge.svg" alt="DoppelCrush logo" />
+            <div>
+              <h1>DoppelCrush</h1>
+              <p>Because clearly you have good taste.</p>
+            </div>
+          </div>
+
+          <nav className="dc-home-nav-v5">
+            <Link href="/">Home</Link>
+            <Link href="/how-it-works">How it works</Link>
+            <Link href="/safety">Safety</Link>
+            <Link href="/faq">FAQ</Link>
+          </nav>
+
+          <div className="dc-home-header-action-v5">
+            <Link href="/signup" className="dc-home-start-btn-v5">
+              Start
+            </Link>
+            <span className="dc-home-header-spark-v5">✦</span>
+          </div>
+        </div>
+      </header>
+
+      <section className="dc-home-hero-v5">
+        <div className="dc-home-left-v5">
+          <div className="dc-home-sticker-banner-v5">
+            <span>📸</span>
+            <span>Selfie first. Crush later.</span>
+          </div>
+
+          <img
+            className="dc-home-heart-character-v5"
+            src="/assets/sticker-heart-character.svg"
+            alt="Heart sticker"
+          />
+
+          <div className="dc-home-doodle-v5 dc-home-doodle-a-v5">✦</div>
+          <div className="dc-home-doodle-v5 dc-home-doodle-b-v5">⚡</div>
+          <div className="dc-home-doodle-v5 dc-home-doodle-c-v5">♡</div>
+          <div className="dc-home-doodle-v5 dc-home-doodle-d-v5">〰</div>
+          <div className="dc-home-doodle-v5 dc-home-doodle-e-v5">★</div>
+
+          <h2 className="dc-home-title-v5">
+            <span className="dc-home-title-black-v5">Find your</span>
+            <span className="dc-home-title-gradient-v5">DoppelCrush</span>
+          </h2>
+
+          <p className="dc-home-copy-v5">
+            Upload your selfie, pick your vibe, and discover people who match
+            your look — or completely change your type.
           </p>
 
-          <div className="dc-home-cta-row">
-            <Link href="/signup" className="dc-btn dc-btn-primary">
-              Start matching
+          <div className="dc-home-buttons-v5">
+            <Link href="/signup" className="dc-home-pill-btn-v5 dc-home-pill-primary-v5">
+              <span>📷</span>
+              Upload my selfie
+              <strong>→</strong>
             </Link>
-            <Link href="/how-it-works" className="dc-btn dc-btn-light">
-              How it works
+
+            <Link
+              href="/signup?mode=chaos"
+              className="dc-home-pill-btn-v5 dc-home-pill-secondary-v5"
+            >
+              <span>⚡</span>
+              Chaos Mode
             </Link>
           </div>
 
-          <div className="dc-home-proof">
-            <div className="dc-home-proof-avatars">
-              {proofAvatars.map((src, index) => (
-                <img key={src} src={src} alt={`Member preview ${index + 1}`} />
+          <div className="dc-home-mini-grid-v5">
+            {miniCards.map((card) => (
+              <div key={card.title} className="dc-home-mini-card-v5">
+                <div className="dc-home-mini-icon-v5">{card.icon}</div>
+                <div>
+                  <strong>{card.title}</strong>
+                  <p>{card.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="dc-home-right-v5">
+          <img
+            className="dc-home-winged-heart-v5"
+            src="/assets/sticker-winged-heart.svg"
+            alt="Winged heart sticker"
+          />
+
+          <div className="dc-home-preview-v5">
+            <div className="dc-home-preview-top-v5">
+              <div className="dc-home-preview-dots-v5">
+                <span className="dot red" />
+                <span className="dot yellow" />
+                <span className="dot green" />
+              </div>
+            </div>
+
+            <div className="dc-home-preview-kicker-v5">• LIVE PREVIEW</div>
+            <h3 className="dc-home-preview-title-v5">Your matches</h3>
+
+            <div className="dc-home-preview-list-v5">
+              {previewMatches.map((match) => (
+                <div key={match.name} className="dc-home-preview-card-v5">
+                  <img src={match.image} alt={match.name} />
+
+                  <div className="dc-home-preview-copy-v5">
+                    <div className="dc-home-preview-name-v5">
+                      {match.name}, {match.age}
+                    </div>
+                    <div className={`dc-home-preview-badge-v5 ${match.badgeClass}`}>
+                      {match.badgeClass === 'chaos' ? '⚡ ' : ''}
+                      {match.badge}
+                    </div>
+                    <p>
+                      {match.textTop}
+                      <br />
+                      {match.textBottom}
+                    </p>
+                  </div>
+
+                  <div className="dc-home-preview-actions-v5">
+                    <button type="button" className="dc-home-pass-btn-v5">
+                      Pass
+                    </button>
+                    <button type="button" className="dc-home-like-btn-v5">
+                      <span>💗</span>
+                      Into it
+                    </button>
+                  </div>
+                </div>
               ))}
             </div>
-            <p>
-              Join people discovering their twin energy
-              <span> — or a very good plot twist.</span>
-            </p>
+
+            <button type="button" className="dc-home-preview-more-v5">
+              See more matches <span>⌄</span>
+            </button>
           </div>
-        </div>
 
-        <div className="dc-home-visual">
-          <div className="dc-phone-stack">
-            <div className="dc-phone-card dc-phone-card-main">
-              <div className="dc-phone-top">
-                <span className="dc-phone-notch" />
-              </div>
+          <img
+            className="dc-home-side-hearts-v5"
+            src="/assets/sticker-duo-hearts.svg"
+            alt="Heart stickers"
+          />
 
-              <div className="dc-phone-inner">
-                <div className="dc-phone-minihead">
-                  <span className="dc-phone-page">Discover</span>
-                  <span className="dc-badge">Doppel Mode</span>
-                </div>
+          <img
+            className="dc-home-side-bolt-v5"
+            src="/assets/sticker-lightning-bolt.svg"
+            alt="Lightning bolt sticker"
+          />
 
-                <div className="dc-phone-profile">
-                  <img
-                    src="/assets/home-hero-profile-a.webp"
-                    alt="Doppel mode profile preview"
-                  />
-                  <div className="dc-phone-profile-meta">
-                    <div className="dc-phone-name-row">
-                      <strong>Lola, 19</strong>
-                      <span className="dc-badge">Twin Energy 92%</span>
-                    </div>
-                    <p>Giving familiar in the best way.</p>
-                  </div>
-                </div>
-
-                <div className="dc-phone-actions">
-                  <button type="button" aria-label="Pass">
-                    ×
-                  </button>
-                  <button type="button" className="active" aria-label="Like">
-                    ♥
-                  </button>
-                  <button type="button" aria-label="Chaos">
-                    ⚡
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="dc-phone-card dc-phone-card-chat">
-              <div className="dc-phone-top">
-                <span className="dc-phone-notch" />
-              </div>
-
-              <div className="dc-phone-inner">
-                <div className="dc-chat-hero">
-                  <div className="dc-chat-match-title">It’s a match!</div>
-                  <div className="dc-chat-avatars">
-                    <img src="/assets/home-chat-avatar-a.webp" alt="Match avatar one" />
-                    <img src="/assets/home-chat-avatar-b.webp" alt="Match avatar two" />
-                  </div>
-                  <p>You matched. Say something cute.</p>
-                </div>
-
-                <div className="dc-chat-bubbles">
-                  <div className="dc-chat-bubble them">
-                    Okay be honest… do we actually look alike?
-                  </div>
-                  <div className="dc-chat-bubble me">
-                    This match is dangerously familiar.
-                  </div>
-                  <div className="dc-chat-bubble them">
-                    Twin energy is real.
-                  </div>
-                </div>
-
-                <div className="dc-chat-input-fake">Say something cute...</div>
-              </div>
-            </div>
-          </div>
+          <img
+            className="dc-home-side-face-v5"
+            src="/assets/sticker-silly-face.svg"
+            alt="Playful face sticker"
+          />
         </div>
       </section>
 
-      <section className="dc-home-section dc-card">
-        <div className="dc-home-section-head">
-          <div className="dc-kicker">Two ways to match</div>
-          <h2>One app. Two very different energies.</h2>
-        </div>
+      <section className="dc-home-bottom-grid-v5">
+        <article className="dc-home-bottom-card-v5 dc-home-bottom-card-twin-v5">
+          <div className="dc-home-bottom-badge-v5 twin">Twin Energy</div>
 
-        <div className="dc-home-mode-grid">
-          <article className="dc-home-mode-card twin">
-            <div className="dc-home-mode-icon">💞</div>
-            <div className="dc-home-mode-copy">
-              <div className="dc-kicker pink">Doppel Mode</div>
-              <h3>Find your twin energy.</h3>
+          <div className="dc-home-bottom-inner-v5">
+            <div className="dc-home-bottom-copy-v5">
+              <h3>Cute, familiar, iconic.</h3>
               <p>
-                Discover people who feel strangely familiar — similar features,
-                similar vibe, instant connection.
+                Discover people who look like your mirror — familiar faces,
+                matching energy, and instant twin vibes.
               </p>
             </div>
-            <div className="dc-home-mode-photo">
-              <img
-                src="/assets/home-mode-doppel.webp"
-                alt="Doppel Mode portrait preview"
-              />
-            </div>
-          </article>
 
-          <article className="dc-home-mode-card chaos">
-            <div className="dc-home-mode-icon">⚡</div>
-            <div className="dc-home-mode-copy">
-              <div className="dc-kicker">Chaos Mode</div>
-              <h3>Explore the opposite.</h3>
+            <div className="dc-home-bottom-art-v5">
+              <img
+                className="dc-home-bottom-heart-v5"
+                src="/assets/sticker-duo-hearts.svg"
+                alt="Heart sticker"
+              />
+
+              <div className="dc-home-polaroid-v5">
+                <img src="/assets/home-duo.jpg" alt="Doppel duo" />
+                <span>You, but make it us.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article className="dc-home-bottom-card-v5 dc-home-bottom-card-chaos-v5">
+          <div className="dc-home-bottom-badge-v5 chaos">Chaos Mode</div>
+
+          <div className="dc-home-bottom-inner-v5 chaos-layout">
+            <div className="dc-home-bottom-copy-v5">
+              <h3>Plot twist energy.</h3>
               <p>
                 Go for the total opposite when your usual type needs a little
-                shake-up. Plot twist energy.
+                shake-up.
               </p>
             </div>
-            <div className="dc-home-mode-photo">
+
+            <div className="dc-home-chaos-art-v5">
               <img
-                src="/assets/home-mode-chaos.webp"
-                alt="Chaos Mode portrait preview"
+                className="dc-home-chaos-bolt-v5"
+                src="/assets/sticker-lightning-bolt.svg"
+                alt="Lightning bolt sticker"
+              />
+              <img
+                className="dc-home-chaos-face-v5"
+                src="/assets/sticker-silly-face.svg"
+                alt="Playful face sticker"
               />
             </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="dc-home-section dc-card">
-        <div className="dc-home-section-head center">
-          <div className="dc-kicker">How it works</div>
-          <h2>Cute, quick, and easy to get into.</h2>
-        </div>
-
-        <div className="dc-home-steps-grid">
-          <div className="dc-home-step-card">
-            <div className="dc-home-step-num">1</div>
-            <h3>Upload your selfie</h3>
-            <p>Use a clear selfie. We’ll handle the rest.</p>
           </div>
-
-          <div className="dc-home-step-card">
-            <div className="dc-home-step-num">2</div>
-            <h3>Pick your mode</h3>
-            <p>Doppel for familiar vibes. Chaos for total plot twists.</p>
-          </div>
-
-          <div className="dc-home-step-card">
-            <div className="dc-home-step-num">3</div>
-            <h3>Match and chat</h3>
-            <p>Like, match, and start something real.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="dc-home-section dc-home-bottom-grid">
-        <div className="dc-card dc-home-value-panel">
-          <div className="dc-kicker pink">Why people love DoppelCrush</div>
-          <h2>A fresh twist on dating. Built for real connection.</h2>
-
-          <div className="dc-home-value-grid">
-            <div className="dc-home-value-item">
-              <div className="dc-home-value-icon">☺</div>
-              <strong>Visual-first matching</strong>
-              <p>Because chemistry starts with a spark.</p>
-            </div>
-
-            <div className="dc-home-value-item">
-              <div className="dc-home-value-icon">✦</div>
-              <strong>Playful, not superficial</strong>
-              <p>More than looks — it’s about energy.</p>
-            </div>
-
-            <div className="dc-home-value-item">
-              <div className="dc-home-value-icon">💬</div>
-              <strong>Chats that feel easy</strong>
-              <p>Starter prompts help break the ice.</p>
-            </div>
-
-            <div className="dc-home-value-item">
-              <div className="dc-home-value-icon">🛡</div>
-              <strong>Safety, always</strong>
-              <p>18+, opt-in only, and your photo stays yours.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="dc-card dc-home-safety-panel">
-          <div className="dc-kicker">Safety</div>
-          <h2>18+, opt-in, and your photo only.</h2>
-          <p className="dc-muted">
-            Everyone you see joined on purpose. Use your own selfie, stay in
-            control of your account, and keep things respectful.
-          </p>
-
-          <div className="dc-home-safety-grid">
-            <div className="dc-home-safety-item">
-              <strong>18+</strong>
-              <span>Adults only</span>
-            </div>
-            <div className="dc-home-safety-item">
-              <strong>Opt-in</strong>
-              <span>You’re in control</span>
-            </div>
-            <div className="dc-home-safety-item">
-              <strong>Your data</strong>
-              <span>Private and secure</span>
-            </div>
-            <div className="dc-home-safety-item">
-              <strong>Real chats</strong>
-              <span>Made for actual conversation</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="dc-home-cta-band">
-        <div>
-          <h2>Ready to meet your mirror match?</h2>
-          <p>One selfie is all it takes.</p>
-        </div>
-
-        <Link href="/signup" className="dc-btn dc-home-cta-button">
-          Create my profile
-        </Link>
+        </article>
       </section>
     </main>
   );
