@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
 
+const proofAvatars = [
+  '/assets/home-proof-1.webp',
+  '/assets/home-proof-2.webp',
+  '/assets/home-proof-3.webp',
+  '/assets/home-proof-4.webp',
+];
+
 export default function HomePage() {
   return (
     <main className="dc-page-shell">
@@ -17,8 +24,8 @@ export default function HomePage() {
           </h1>
 
           <p className="dc-home-subcopy">
-            Upload your selfie, choose your vibe, and discover people who match
-            your look — or your total opposite.
+            Upload your selfie, pick your vibe, and discover people who match your
+            look — or completely change your type.
           </p>
 
           <div className="dc-home-cta-row">
@@ -32,10 +39,9 @@ export default function HomePage() {
 
           <div className="dc-home-proof">
             <div className="dc-home-proof-avatars">
-              <img src="/assets/user-lola.png" alt="Member preview" />
-              <img src="/assets/user-lola.png" alt="Member preview" />
-              <img src="/assets/user-lola.png" alt="Member preview" />
-              <img src="/assets/user-lola.png" alt="Member preview" />
+              {proofAvatars.map((src, index) => (
+                <img key={src} src={src} alt={`Member preview ${index + 1}`} />
+              ))}
             </div>
             <p>
               Join people discovering their twin energy
@@ -58,7 +64,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="dc-phone-profile">
-                  <img src="/assets/user-lola.png" alt="Lola profile preview" />
+                  <img
+                    src="/assets/home-hero-profile-a.webp"
+                    alt="Doppel mode profile preview"
+                  />
                   <div className="dc-phone-profile-meta">
                     <div className="dc-phone-name-row">
                       <strong>Lola, 19</strong>
@@ -69,9 +78,15 @@ export default function HomePage() {
                 </div>
 
                 <div className="dc-phone-actions">
-                  <button type="button">×</button>
-                  <button type="button" className="active">♥</button>
-                  <button type="button">⚡</button>
+                  <button type="button" aria-label="Pass">
+                    ×
+                  </button>
+                  <button type="button" className="active" aria-label="Like">
+                    ♥
+                  </button>
+                  <button type="button" aria-label="Chaos">
+                    ⚡
+                  </button>
                 </div>
               </div>
             </div>
@@ -85,10 +100,10 @@ export default function HomePage() {
                 <div className="dc-chat-hero">
                   <div className="dc-chat-match-title">It’s a match!</div>
                   <div className="dc-chat-avatars">
-                    <img src="/assets/user-lola.png" alt="Match avatar" />
-                    <img src="/assets/user-lola.png" alt="User avatar" />
+                    <img src="/assets/home-chat-avatar-a.webp" alt="Match avatar one" />
+                    <img src="/assets/home-chat-avatar-b.webp" alt="Match avatar two" />
                   </div>
-                  <p>You and Lola liked each other. Say something cute.</p>
+                  <p>You matched. Say something cute.</p>
                 </div>
 
                 <div className="dc-chat-bubbles">
@@ -123,12 +138,15 @@ export default function HomePage() {
               <div className="dc-kicker pink">Doppel Mode</div>
               <h3>Find your twin energy.</h3>
               <p>
-                Discover people who look like your mirror — similar features,
+                Discover people who feel strangely familiar — similar features,
                 similar vibe, instant connection.
               </p>
             </div>
             <div className="dc-home-mode-photo">
-              <img src="/assets/user-lola.png" alt="Doppel mode preview" />
+              <img
+                src="/assets/home-mode-doppel.webp"
+                alt="Doppel Mode portrait preview"
+              />
             </div>
           </article>
 
@@ -143,7 +161,10 @@ export default function HomePage() {
               </p>
             </div>
             <div className="dc-home-mode-photo">
-              <img src="/assets/user-lola.png" alt="Chaos mode preview" />
+              <img
+                src="/assets/home-mode-chaos.webp"
+                alt="Chaos Mode portrait preview"
+              />
             </div>
           </article>
         </div>
